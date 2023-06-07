@@ -1,0 +1,9 @@
+.loadButton {
+  width: 120px;
+  height: 40px;
+  border: none;
+  border-radius: 4px;
+  background-color: blue;
+  color: beige;
+  font-size: 18px;
+}

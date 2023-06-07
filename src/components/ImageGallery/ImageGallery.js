@@ -5,6 +5,7 @@ import Loader from 'components/Loader/Loader';
 import Button from 'components/Button/Button';
 import { toast } from 'react-toastify';
 import { getImages } from 'api/PixabayApi';
+import { ImWink } from 'react-icons/im';
 
 export default class ImageGallery extends Component {
   state = {
@@ -51,12 +52,14 @@ export default class ImageGallery extends Component {
   render() {
     const { images, loading } = this.state;
     return (
-      <div>
+      <div className={css.galleryWrapper}>
         {loading && <Loader />}
 
         <ul className={css.gallery}>
           {!images ? (
-            <p>Sorry, no such image, please try another one!</p>
+            <p className={css.noImageTitle}>
+              Sorry, no such image, please try another one <ImWink />
+            </p>
           ) : (
             images.map(({ id, webformatURL, largeImageURL, tags }) => {
               return (
