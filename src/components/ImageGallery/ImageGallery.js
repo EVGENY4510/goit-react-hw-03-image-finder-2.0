@@ -13,7 +13,6 @@ export default class ImageGallery extends Component {
   };
 
   async componentDidUpdate(prevProps, prevState) {
-    const KEY_API = '35544273-b6528e3c4aa6f18d7727a7eb2';
     const { page } = this.props;
     const { searchValue } = this.props;
     const prevSearchValue = prevProps.searchValue;
@@ -22,7 +21,7 @@ export default class ImageGallery extends Component {
       this.setState({ loading: true });
 
       try {
-        const data = await getImages(searchValue, page, KEY_API);
+        const data = await getImages(searchValue, page);
 
         if (data.hits.length !== 0) {
           return this.props.onImagesChange(data.hits);
